@@ -22,6 +22,15 @@ body {
   padding-right: 20px;
   background-color: #EEE5C8;
 }
+@media only screen and (max-width: 430px) {
+  .contentPage {
+    margin-left: 25px;
+    margin-right: 25px;
+    margin-bottom: 50px;
+    padding-left: 10px;
+    padding-right: 10px;
+  }
+}
 
 .header {
   padding-top: 20px;
@@ -31,10 +40,20 @@ body {
   top: 0px;
   z-index: 2;
 }
+@media only screen and (max-width: 430px) {
+  .header {
+    padding-top: 10px;
+  }
+}
 
 .container {
   padding-bottom: 20px;
   background-color: #EEE5C8;
+}
+@media only screen and (max-width: 430px) {
+  .container {
+    padding-bottom: 10px;
+  }
 }
 
 .title {
@@ -51,6 +70,11 @@ body {
 
 .logo {
   grid-area: logoImg;
+}
+@media only screen and (max-width: 430px) {
+  .logo {
+    cursor: pointer;
+  }
 }
 
 .name {
@@ -89,6 +113,12 @@ body {
   grid-template-rows: auto;
   grid-template-areas: "titleSpace proj aboutMe logoImg" "myName calcBy engineer logoImg" "myName drawingBy graphicDesign logoImg" "myName designBy contactMe logoImg";
 }
+@media only screen and (max-width: 430px) {
+  .block {
+    grid-template-columns: 2fr 1fr 1fr 1fr 1fr 2fr;
+    grid-template-areas: "titleSpace titleSpace titleSpace titleSpace logoImg logoImg" "myName myName myName myName logoImg logoImg" "myName myName myName myName logoImg logoImg" "proj proj aboutMe aboutMe aboutMe aboutMe" "calcBy calcBy engineer engineer engineer engineer" "drawingBy drawingBy graphicDesign graphicDesign graphicDesign graphicDesign" "designBy designBy contactMe contactMe contactMe contactMe";
+  }
+}
 
 .titleBlock {
   color: #ACB0B2;
@@ -100,6 +130,13 @@ body {
   display: flex;
   justify-content: flex-start;
 }
+@media only screen and (max-width: 430px) {
+  .titleBlock {
+    font-size: 12px;
+    padding-left: 10px;
+    padding-top: 5px;
+  }
+}
 
 .writing {
   color: #253B73;
@@ -110,21 +147,36 @@ body {
   display: flex;
   justify-content: flex-end;
 }
-
-.writingName {
-  color: #253B73;
+.writing__name {
   font-size: 48px;
-  font-family: "Kalam";
   padding: 20px;
-  border: 1px #ACB0B2 solid;
-  display: flex;
   justify-content: center;
+}
+@media only screen and (max-width: 430px) {
+  .writing__name {
+    font-size: 18px;
+    padding: 10px;
+  }
+}
+@media only screen and (max-width: 430px) {
+  .writing {
+    font-size: 15px;
+    padding-right: 10px;
+  }
+}
+
+.writing:hover, .writing:focus {
+  color: #86C4E2;
+}
+.writing:hover__name, .writing:focus__name {
+  color: #253B73;
 }
 
 .page {
   background-size: 40px 40px;
   background-image: linear-gradient(to right, #ACB0B2 1px, transparent 1px), linear-gradient(to bottom, #ACB0B2 1px, transparent 1px);
   border: 2px #ACB0B2 solid;
+  border-top: none;
   display: grid;
   padding-top: 50px;
   padding-left: 100px;
@@ -135,6 +187,26 @@ body {
   row-gap: 75px;
   grid-template-areas: "img_1 introText" "descript_1 descript_1" "descript_2 descript_2" "descript_3 descript_3";
 }
+@media only screen and (max-width: 430px) {
+  .page {
+    background-size: 20px 20px;
+    padding-top: 20px;
+    padding-left: 20px;
+    padding-right: 20px;
+    padding-bottom: 20px;
+    grid-template-columns: 1fr;
+    row-gap: 20px;
+    grid-template-areas: "img_1" "introText" "descript_1" "descript_2" "descript_3";
+  }
+}
+.page__contact {
+  grid-template-areas: "introText img_1" "form form";
+}
+@media only screen and (max-width: 430px) {
+  .page__contact {
+    grid-template-areas: "img_1" "introText" "form";
+  }
+}
 
 .profilePic {
   grid-area: img_1;
@@ -144,6 +216,16 @@ body {
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
   position: relative;
   left: 80px;
+}
+@media only screen and (max-width: 430px) {
+  .profilePic {
+    left: unset;
+    max-width: 100%;
+  }
+}
+.profilePic__position {
+  left: unset;
+  right: 80px;
 }
 
 .stickyNote {
@@ -164,18 +246,56 @@ body {
   z-index: 1;
   transform: rotate(-7deg);
 }
+@media only screen and (max-width: 430px) {
+  .stickyNote {
+    width: 300px;
+    height: 300px;
+    padding: 15px;
+    font-size: 24px;
+  }
+}
+.stickyNote__contact {
+  background: radial-gradient(circle, #95c8e2 0%, #86C4E2 100%);
+  transform: rotate(7deg);
+  position: relative;
+  left: 80px;
+}
+@media only screen and (max-width: 430px) {
+  .stickyNote__contact {
+    left: unset;
+  }
+}
+.stickyNote__details {
+  font-size: 24px;
+}
+@media only screen and (max-width: 430px) {
+  .stickyNote__details {
+    font-size: 18px;
+  }
+}
 
 li {
   text-align: left;
   margin-left: 2.5rem;
+}
+@media only screen and (max-width: 430px) {
+  li {
+    margin-left: 1.5rem;
+  }
 }
 
 #sticky {
   font-size: 30px;
   padding-top: 15px;
 }
+@media only screen and (max-width: 430px) {
+  #sticky {
+    font-size: 20px;
+    padding-top: 5px;
+  }
+}
 
-.arrow-pointer {
+.arrowPointer {
   width: 400px;
   height: 75px;
   background: #86C4E2;
@@ -183,7 +303,7 @@ li {
   right: 40px;
   top: 20px;
   color: #253B73;
-  font-size: 18px;
+  font-size: 24px;
   font-weight: 300;
   font-family: "Kalam";
   padding-top: 10px;
@@ -191,16 +311,56 @@ li {
   padding-left: 17.5px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
 }
-.arrow-pointer:before {
+@media only screen and (max-width: 430px) {
+  .arrowPointer {
+    width: 200px;
+    height: 40px;
+    right: 20px;
+    top: 10px;
+    font-size: 12px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    padding-left: 12.5px;
+  }
+}
+.arrowPointer:before {
   content: "";
   position: absolute;
-  right: -37.5px;
+  right: -20px;
   bottom: 0;
   width: 0;
   height: 0;
   border-left: 37.5px solid #86C4E2;
   border-top: 37.5px solid transparent;
   border-bottom: 37.5px solid transparent;
+}
+@media only screen and (max-width: 430px) {
+  .arrowPointer:before {
+    right: -20px;
+    border-left: 20px solid #86C4E2;
+    border-top: 20px solid transparent;
+    border-bottom: 20px solid transparent;
+  }
+}
+.arrowPointer__art {
+  height: 150px;
+}
+@media only screen and (max-width: 430px) {
+  .arrowPointer__art {
+    height: 75px;
+  }
+}
+.arrowPointer__art:before {
+  right: -37.5px;
+  border-left: 37.5px solid #86C4E2;
+  border-top: 37.5px solid transparent;
+  border-bottom: 37.5px solid transparent;
+}
+.arrowPointer__contact {
+  background: rgb(251, 227, 86);
+}
+.arrowPointer__contact:before {
+  border-left: 37.5px solid rgb(251, 227, 86);
 }
 
 .textBox {
@@ -211,10 +371,47 @@ li {
   padding: 50px;
   box-shadow: 5px 5px 15px 5px rgba(0, 0, 0, 0.4);
 }
+@media only screen and (max-width: 430px) {
+  .textBox {
+    font-size: 14px;
+    padding: 15px;
+    line-height: 18px;
+    width: 300px;
+  }
+}
+.textBox__details {
+  display: flex;
+}
+
+.container1 {
+  padding: 20px;
+  padding-right: 40px;
+  line-height: 40px;
+}
+@media only screen and (max-width: 430px) {
+  .container1 {
+    padding: 10px;
+    padding-right: 20px;
+    line-height: 20px;
+  }
+}
+
+.container2 {
+  display: flex;
+  flex-flow: column wrap;
+  justify-content: center;
+  text-align: center;
+}
 
 .textTitle {
   text-decoration: underline;
   font-size: 24px;
+}
+@media only screen and (max-width: 430px) {
+  .textTitle {
+    font-size: 14px;
+    letter-spacing: 0.5px;
+  }
 }
 
 .box1 {
@@ -253,10 +450,118 @@ button {
   margin-bottom: 25px;
   align-self: center;
 }
+@media only screen and (max-width: 430px) {
+  button {
+    transform: scale(0.75, 0.75);
+  }
+}
+
+button:hover, button:focus {
+  color: #ACB0B2;
+  background-color: #253B73;
+  transform: scale(1.05, 1.05);
+}
+@media only screen and (max-width: 430px) {
+  button:hover, button:focus {
+    transform: scale(0.8, 0.8);
+  }
+}
 
 .contactInfo {
   align-self: center;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #253B73;
   margin-bottom: 10px;
+  display: flex;
+  flex-flow: row wrap;
+}
+
+#linkedIn {
+  cursor: pointer;
+}
+
+#email {
+  cursor: pointer;
+}
+
+a:link {
+  text-decoration: none;
+}
+
+a:visited {
+  text-decoration: none;
+}
+
+a:hover {
+  text-decoration: none;
+}
+
+a:active {
+  text-decoration: none;
+}
+
+.contactMe {
+  grid-area: form;
+}
+
+input[type=text], select, textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1px solid #ACB0B2;
+  border-radius: 4px; /* Rounded borders */
+  box-sizing: border-box; /* Make sure that padding and width stays in place */
+  margin-top: 6px; /* Add a top margin */
+  margin-bottom: 16px; /* Bottom margin */
+  resize: vertical;
+  background-color: #f2f0eb;
+}
+
+input[type=text]:focus {
+  background-color: #95c8e2;
+}
+
+input[type=submit] {
+  background-color: #86C4E2;
+  color: #253B73;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 15px;
+  font-weight: 300;
+}
+
+input[type=submit]:hover {
+  background-color: #253B73;
+  color: #ACB0B2;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-weight: 300;
+}
+
+#fnameBox, #lnameBox, #emailBox, #pNumBox {
+  width: 500px;
+  padding-left: 10px;
+  padding-right: 10px;
+}
+
+.contactForm {
+  border-radius: 5px;
+  background-color: #F2EDDE;
+  padding: 30px;
+  font-family: Georgia, "Times New Roman", Times, serif;
+  font-size: 18px;
+  font-weight: 300;
+}
+
+.row {
+  display: flex;
+  gap: 10px;
+  justify-content: space-between;
+  align-items: baseline;
+}
+
+.question {
+  display: flex;
+  flex-flow: column wrap;
 }/*# sourceMappingURL=styles.css.map */

@@ -6,13 +6,18 @@
     box-sizing: border-box; //adds the padding in there, total box
 }
 
+@mixin device($breakpoint){
+    @media only screen and(max-width:$breakpoint){
+        @content
+    }
+}
+
 body{
     background-color: $backGroundColor;
     margin: 0;
     padding: 0;
     overflow-wrap: break-word;
     font-family: 'Roboto', sans-serif;
-    
 }
 
 .contentPage{
@@ -23,6 +28,14 @@ body{
     padding-left: 20px;
     padding-right: 20px;
     background-color: $pageColor;
+
+    @include device($breakPoint){
+        margin-left: 25px;
+        margin-right: 25px;
+        margin-bottom: 50px;
+        padding-left: 10px;
+        padding-right: 10px;
+    }
 }
 
 .header{
@@ -31,13 +44,20 @@ body{
     position: sticky;
     top: 0px;
     z-index: 2;
+
+    @include device($breakPoint){
+        padding-top: 10px;
+    }
 }
 
 .container{
     padding-bottom: 20px;
     background-color: $pageColor;
-}
 
+    @include device($breakPoint){
+        padding-bottom: 10px;
+    }
+}
 
 .title{
     grid-area:titleSpace;
@@ -53,6 +73,10 @@ body{
 
 .logo{
     grid-area: logoImg;
+
+    @include device($breakPoint){
+        cursor: pointer;
+    }
 }
 
 .name{
@@ -94,6 +118,18 @@ body{
         "myName calcBy engineer logoImg"
         "myName drawingBy graphicDesign logoImg"
         "myName designBy contactMe logoImg";
+
+        @include device($breakPoint){
+            grid-template-columns: 2fr 1fr 1fr 1fr 1fr 2fr;
+            grid-template-areas:
+                "titleSpace titleSpace titleSpace titleSpace logoImg logoImg"
+                "myName myName myName myName logoImg logoImg"
+                "myName myName myName myName logoImg logoImg"
+                "proj proj aboutMe aboutMe aboutMe aboutMe"
+                "calcBy calcBy engineer engineer engineer engineer"
+                "drawingBy drawingBy graphicDesign graphicDesign graphicDesign graphicDesign"
+                "designBy designBy contactMe contactMe contactMe contactMe";
+        }    
 }
 
 .titleBlock{
@@ -105,6 +141,12 @@ body{
     padding-top: 5px;
     display: flex;
     justify-content: flex-start;
+
+    @include device($breakPoint){
+        font-size: 12px;
+        padding-left: 10px;
+        padding-top: 5px;
+    } 
 }
 
 .writing{
@@ -115,16 +157,30 @@ body{
     border: 1px $text_3 solid;
     display: flex;
     justify-content: flex-end;
+
+    &__name{
+        font-size: 48px;
+        padding: 20px;
+        justify-content: center;
+
+        @include device($breakPoint){
+            font-size: 18px;
+            padding: 10px;
+        } 
+    }
+
+    @include device($breakPoint){
+        font-size: 15px;
+        padding-right: 10px;
+    } 
 }
 
-.writingName{
-    color: $text_1;
-    font-size: 48px;
-    font-family: 'Kalam';
-    padding: 20px;
-    border: 1px $text_3 solid;
-    display: flex;
-    justify-content: center;
+.writing:hover, .writing:focus{
+    color: $text_2;  
+
+    &__name{
+        color: $text_1;
+    }
 }
 
 .page{
@@ -132,6 +188,7 @@ body{
     background-image:
         linear-gradient(to right, $text_3 1px, transparent 1px), linear-gradient(to bottom, $text_3 1px, transparent 1px);
     border: 2px $text_3 solid;
+    border-top: none;
     display: grid;
     padding-top: 50px;
     padding-left: 100px;
@@ -144,7 +201,37 @@ body{
         "img_1 introText"
         "descript_1 descript_1"
         "descript_2 descript_2"
-        "descript_3 descript_3"
+        "descript_3 descript_3";
+
+    @include device($breakPoint){
+        background-size: 20px 20px;
+        padding-top: 20px;
+        padding-left: 20px;
+        padding-right: 20px;
+        padding-bottom: 20px;
+        grid-template-columns: 1fr;
+        row-gap: 20px;
+        grid-template-areas:
+        "img_1" 
+        "introText"
+        "descript_1"
+        "descript_2"
+        "descript_3";
+    } 
+
+    &__contact{
+        grid-template-areas:
+        "introText img_1"
+        "form form";
+
+        @include device($breakPoint){
+            grid-template-areas:
+            "img_1" 
+            "introText"
+            "form";
+        } 
+
+    }
 }
 
 .profilePic{
@@ -154,8 +241,17 @@ body{
     flex-direction: column;
     box-shadow: $shadow; 
     position: relative;
-    left:80px; 
-    
+    left:80px;  
+
+    @include device($breakPoint){
+        left: unset;
+        max-width: 100%;
+    } 
+
+    &__position{
+        left:unset;
+        right: 80px;
+    }
 }
 
 .stickyNote{
@@ -176,49 +272,122 @@ body{
     z-index: 1;
     transform: rotate(-7deg);
 
+    @include device($breakPoint){
+        width: 300px;
+        height: 300px;
+        padding: 15px;
+        font-size: 24px;
+    } 
+
+    &__contact{
+        background: radial-gradient(circle, $text_4 0%, $text_2 100%); 
+        transform: rotate(7deg);
+        position: relative;
+        left:80px; 
+
+        @include device($breakPoint){
+           left:unset;
+        } 
+    }
+
+    &__details{
+        font-size: 24px; 
+
+        @include device($breakPoint){
+            font-size: 18px;
+        }
+    }
 }
+
 
 li{
     text-align: left;
     margin-left: 2.5rem;
+    @include device($breakPoint){
+        margin-left: 1.5rem;
+        }
 }
 
 #sticky{
     font-size: 30px;
     padding-top: 15px;
-}
 
+    @include device($breakPoint){
+        font-size: 20px;
+        padding-top: 5px;
+    }  
+}
         
-.arrow-pointer {
+.arrowPointer {
     width: 400px;
     height: 75px;
     background: $text_2;
     position: relative;
     right:40px; 
-    top:20px;
+    top: 20px;
     color: $text_1;
-    font-size: 18px;
+    font-size: 24px;
     font-weight: 300;
     font-family: 'Kalam';
     padding-top: 10px;
     padding-bottom: 10px;
     padding-left: 17.5px;
     box-shadow: $shadow; 
+
+    @include device($breakPoint){
+        width: 200px;
+        height: 40px;
+        right: 20px; 
+        top: 10px;
+        font-size: 12px;
+        padding-top: 5px;
+        padding-bottom: 5px;
+        padding-left: 12.5px;
+    }  
   
     &:before {
       content: '';
       position: absolute;
-      right: -37.5px;
+      right: -20px;
       bottom: 0;
       width: 0;
       height: 0;
       border-left: 37.5px solid $text_2;
       border-top: 37.5px solid transparent;
       border-bottom: 37.5px solid transparent;
+
+      @include device($breakPoint){
+        right: -20px;
+        border-left: 20px solid $text_2;
+        border-top: 20px solid transparent;
+        border-bottom: 20px solid transparent;
+        }  
+    }
+
+    &__art{
+        height: 150px;
+
+        @include device($breakPoint){
+            height: 75px;
+        }
+
+        &:before{
+            right: -37.5px; 
+            border-left: 37.5px solid $text_2;
+            border-top: 37.5px solid transparent;
+            border-bottom: 37.5px solid transparent;           
+        }
+    }
+
+    &__contact{
+        background: $text_5;
+
+        &:before{
+            border-left: 37.5px solid $text_5; 
+        }
     }
   }
-      
-
+ 
 .textBox{
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 24px;
@@ -226,11 +395,46 @@ li{
     background-color: white;
     padding: 50px;
     box-shadow: $shadow; 
+
+    @include device($breakPoint){
+        font-size: 14px;
+        padding: 15px;
+        line-height: 18px;
+        width: 300px;
+        }
+
+    &__details{
+        display: flex;
+    }
+}
+
+.container1{
+    padding: 20px;
+    padding-right: 40px;
+    line-height: 40px;
+
+    @include device($breakPoint){
+        padding: 10px;
+        padding-right: 20px;
+        line-height: 20px;
+        }
+}
+
+.container2{
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: center;
+    text-align: center;
 }
 
 .textTitle{
     text-decoration: underline;
     font-size: 24px;
+
+    @include device($breakPoint){
+        font-size: 14px;
+        letter-spacing:0.5px;
+        }
 }
 
 .box1{
@@ -244,7 +448,6 @@ li{
 .box3{
     grid-area: descript_3;
 }
-
 
 .bottomText{
     display: flex;
@@ -269,6 +472,20 @@ button{
     cursor: pointer;
     margin-bottom: 25px;
     align-self: center;
+
+    @include device($breakPoint){
+        transform: scale(.75, .75);
+        }
+}
+
+button:hover, button:focus{
+    color: $text_3;
+    background-color: $text_1;
+    transform: scale(1.05, 1.05);
+
+    @include device($breakPoint){
+        transform: scale(.8, .8);
+        }
 }
 
 .contactInfo{
@@ -276,4 +493,85 @@ button{
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: $text_1;
     margin-bottom: 10px;
+    display: flex;
+    flex-flow: row wrap;
+}
+
+#linkedIn{
+    cursor: pointer;
+}
+
+#email{
+    cursor: pointer;
+}
+
+a:link { text-decoration: none; }
+a:visited { text-decoration: none; }
+a:hover { text-decoration: none; }
+a:active { text-decoration: none; }
+
+.contactMe{
+    grid-area: form;
+}
+
+input[type=text], select, textarea {
+    width: 100%;
+    padding: 12px; 
+    border: 1px solid $text_3; 
+    border-radius: 4px; /* Rounded borders */
+    box-sizing: border-box; /* Make sure that padding and width stays in place */
+    margin-top: 6px; /* Add a top margin */
+    margin-bottom: 16px; /* Bottom margin */
+    resize: vertical;
+    background-color: #f2f0eb;
+}
+
+input[type=text]:focus {
+    background-color: $text_4;
+}
+  
+input[type=submit] {
+    background-color: $text_2;
+    color: $text_1;
+    padding: 12px 20px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-weight: 300;
+}
+
+input[type=submit]:hover {
+    background-color: $text_1;
+    color: $text_3;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-weight: 300;
+}
+
+#fnameBox, #lnameBox, #emailBox, #pNumBox{
+    width: 500px;
+    padding-left: 10px;
+    padding-right: 10px;
+}
+
+.contactForm {
+    border-radius: 5px;
+    background-color: $backGroundColor;
+    padding: 30px;
+    font-family: Georgia, 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 300;
+}
+
+.row{
+    display:flex;
+    gap: 10px;
+    justify-content: space-between;
+    align-items: baseline;
+}
+
+.question{
+    display:flex;
+    flex-flow: column wrap;
 }
