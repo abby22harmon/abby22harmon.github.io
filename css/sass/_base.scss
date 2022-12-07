@@ -20,6 +20,12 @@ body{
     font-family: 'Roboto', sans-serif;
 }
 
+a{
+    text-decoration: none!important;
+    font: inherit;
+    color: inherit;
+  }
+
 .contentPage{
     box-shadow: $shadow; 
     margin-left: 150px;
@@ -30,11 +36,11 @@ body{
     background-color: $pageColor;
 
     @include device($breakPoint){
-        margin-left: 25px;
-        margin-right: 25px;
-        margin-bottom: 50px;
-        padding-left: 10px;
-        padding-right: 10px;
+        margin-left: 15px;
+        margin-right: 15px;
+        margin-bottom: 25px;
+        padding-left: 5px;
+        padding-right: 5px;
     }
 }
 
@@ -46,7 +52,7 @@ body{
     z-index: 2;
 
     @include device($breakPoint){
-        padding-top: 10px;
+        padding-top: 5px;
     }
 }
 
@@ -142,10 +148,18 @@ body{
     display: flex;
     justify-content: flex-start;
 
+    &__logo{
+        justify-content: center;
+    }
+
     @include device($breakPoint){
         font-size: 12px;
         padding-left: 10px;
         padding-top: 5px;
+
+        &__logo{
+            padding: 2.5px;
+        }
     } 
 }
 
@@ -164,8 +178,8 @@ body{
         justify-content: center;
 
         @include device($breakPoint){
-            font-size: 18px;
-            padding: 10px;
+            font-size: 24px;
+            padding: 5px;
         } 
     }
 
@@ -183,6 +197,14 @@ body{
     }
 }
 
+.logoPhoto{
+    width: 100%;
+
+    @include device($breakPoint){
+        width: 60%;
+    } 
+}
+
 .page{
     background-size: 40px 40px;
     background-image:
@@ -197,6 +219,8 @@ body{
     grid-template-columns: 1fr 1fr;
     grid-template-rows: auto;
     row-gap: 75px;
+    display: flex;
+    flex-wrap: wrap;
     grid-template-areas:
         "img_1 introText"
         "descript_1 descript_1"
@@ -219,7 +243,28 @@ body{
         "descript_3";
     } 
 
+    &__engr{
+        grid-template-areas:
+        "img_1 introText"
+        "descript_1 descript_1"
+        "descript_2 descript_2"
+        "descript_3 descript_3"
+        "resumeText resumeText";
+
+        @include device($breakPoint){
+            grid-template-areas:
+            "img_1" 
+            "introText"
+            "descript_1"
+            "descript_2"
+            "descript_3"
+            "resumeText"
+        } 
+    }
+
     &__contact{
+        display: flex;
+        justify-content: center;
         grid-template-areas:
         "introText img_1"
         "form form";
@@ -251,6 +296,10 @@ body{
     &__position{
         left:unset;
         right: 80px;
+
+        @include device($breakPoint){
+            right: unset;  
+        } 
     }
 }
 
@@ -273,20 +322,38 @@ body{
     transform: rotate(-7deg);
 
     @include device($breakPoint){
-        width: 300px;
-        height: 300px;
+        width: 325px;
+        height: 325px;
         padding: 15px;
         font-size: 24px;
+        position: relative;
+        bottom:15px; 
     } 
 
     &__contact{
         background: radial-gradient(circle, $text_4 0%, $text_2 100%); 
         transform: rotate(7deg);
         position: relative;
-        left:80px; 
+        left:20px; 
 
-        @include device($breakPoint){
-           left:unset;
+        @include device($breakPoint_2){
+            left:unset;
+            bottom: unset;
+        } 
+    }
+
+    &__engr{
+        transform: rotate(7deg);
+        position: relative;
+        left:20px; 
+        grid-area: resumeText;
+        background: radial-gradient(circle, $text_6 0%, $text_3 100%); 
+        margin-left: auto;
+        margin-right: auto;
+
+        @include device($breakPoint_2){
+            left:unset;
+            bottom: unset;
         } 
     }
 
@@ -298,7 +365,6 @@ body{
         }
     }
 }
-
 
 li{
     text-align: left;
@@ -348,7 +414,7 @@ li{
     &:before {
       content: '';
       position: absolute;
-      right: -20px;
+      right: -37.5px;
       bottom: 0;
       width: 0;
       height: 0;
@@ -372,10 +438,17 @@ li{
         }
 
         &:before{
-            right: -37.5px; 
-            border-left: 37.5px solid $text_2;
-            border-top: 37.5px solid transparent;
-            border-bottom: 37.5px solid transparent;           
+            right: -75px; 
+            border-left: 75px solid $text_2;
+            border-top: 75px solid transparent;
+            border-bottom: 75px solid transparent;  
+            
+            @include device($breakPoint){
+                right: -37.5px;
+                border-left: 37.5px solid $text_2;
+                border-top: 37.5px solid transparent;
+                border-bottom: 37.5px solid transparent;
+                }  
         }
     }
 
@@ -384,6 +457,13 @@ li{
 
         &:before{
             border-left: 37.5px solid $text_5; 
+
+            @include device($breakPoint){
+                right: -20px;
+                border-left: 20px solid $text_5;
+                border-top: 20px solid transparent;
+                border-bottom: 20px solid transparent;
+                }
         }
     }
   }
@@ -393,19 +473,32 @@ li{
     font-size: 24px;
     font-weight: 300;
     background-color: white;
-    padding: 50px;
+    padding: 40px 40px 30px 40px;
     box-shadow: $shadow; 
+    width: 100%;
 
     @include device($breakPoint){
         font-size: 14px;
         padding: 15px;
         line-height: 18px;
-        width: 300px;
         }
 
     &__details{
         display: flex;
+
+        @include device($breakPoint){
+            flex-flow: column wrap;
+            }
     }
+}
+
+.textPhoto{
+    margin-bottom: 20px; 
+
+    @include device($breakPoint){
+        width: 100%;
+        margin-bottom: 10px;
+        }    
 }
 
 .container1{
@@ -426,6 +519,94 @@ li{
     justify-content: center;
     text-align: center;
 }
+
+.slideshow{
+    width: 400px;
+
+    @include device($breakPoint){
+        width: 316px;
+        }
+}
+
+.lightbox-target {
+    position: fixed;
+    z-index: 3;
+    left: 0;
+    width: 100%;
+    background: rgba(0,0,0,.7);
+    width: 100%;
+    opacity: 0;
+    transition: opacity .5s ease-in-out;
+    overflow: hidden;
+    }
+
+.lightbox-target img {
+    margin: auto;
+    position: absolute;
+    top: 0;
+    left:0;
+    right:0;
+    bottom: 0;
+    max-height: 0%;
+    max-width: 0%;
+    box-sizing: border-box;
+    transition: .5s ease-in-out;
+    }
+
+a.lightbox-close {
+    display: block;
+    width:50px;
+    height:50px;
+    box-sizing: border-box;
+    background: white;
+    color: black;
+    text-decoration: none;
+    position: absolute;
+    top: -80px;
+    right: 0;
+    transition: .5s ease-in-out;
+    }
+
+a.lightbox-close:before {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 1px;
+    background: black;
+    position: absolute;
+    left: 26px;
+    top:10px;
+    transform:rotate(45deg);
+    }
+
+a.lightbox-close:after {
+    content: "";
+    display: block;
+    height: 30px;
+    width: 1px;
+    background: black;
+    position: absolute;
+    left: 26px;
+    top:10px;
+    transform:rotate(-45deg);
+    }
+    
+        
+.lightbox-target:target {
+    opacity: 1;
+    top: 0;
+    bottom: 0;
+    overflow:scroll;
+    }
+        
+.lightbox-target:target img {
+    max-height: 90%;
+    max-width: 90%;
+    }
+        
+.lightbox-target:target a.lightbox-close {
+    top: 0;
+    }   
 
 .textTitle{
     text-decoration: underline;
@@ -455,7 +636,7 @@ li{
     justify-content: center;
 }
 
-button{
+.contactButton{
     background-color: $text_2;
     box-shadow: $shadow; 
     color: $text_1;
@@ -475,13 +656,31 @@ button{
 
     @include device($breakPoint){
         transform: scale(.75, .75);
-        }
+        padding: 10px 100px 10px 100px;
+    }
+
+    &__resume{
+        padding: 10px 50px 10px 50px;
+        margin: 10px;   
+        font-size: 24px; 
+        background-color: $text_1;
+        color: $text_2
+    }
+    
 }
 
-button:hover, button:focus{
+.contactButton:hover, .contactButton:focus{
     color: $text_3;
     background-color: $text_1;
     transform: scale(1.05, 1.05);
+
+    &__resume{
+        padding: 10px 50px 10px 50px;
+        margin: 10px;   
+        font-size: 24px; 
+        color: $text_2;
+        background-color: $text_3;
+    }
 
     @include device($breakPoint){
         transform: scale(.8, .8);
@@ -495,6 +694,10 @@ button:hover, button:focus{
     margin-bottom: 10px;
     display: flex;
     flex-flow: row wrap;
+
+    @include device($breakPoint){
+        font-size: 16px;
+        }
 }
 
 #linkedIn{
@@ -505,11 +708,6 @@ button:hover, button:focus{
     cursor: pointer;
 }
 
-a:link { text-decoration: none; }
-a:visited { text-decoration: none; }
-a:hover { text-decoration: none; }
-a:active { text-decoration: none; }
-
 .contactMe{
     grid-area: form;
 }
@@ -518,15 +716,23 @@ input[type=text], select, textarea {
     width: 100%;
     padding: 12px; 
     border: 1px solid $text_3; 
-    border-radius: 4px; /* Rounded borders */
-    box-sizing: border-box; /* Make sure that padding and width stays in place */
-    margin-top: 6px; /* Add a top margin */
-    margin-bottom: 16px; /* Bottom margin */
+    border-radius: 4px; 
+    box-sizing: border-box; 
+    margin-top: 6px; 
+    margin-bottom: 16px; 
     resize: vertical;
     background-color: #f2f0eb;
 }
 
 input[type=text]:focus {
+    background-color: $text_4;
+}
+
+textarea {
+    font-family: Georgia, 'Times New Roman', Times, serif;
+}
+
+textarea:focus {
     background-color: $text_4;
 }
   
@@ -553,6 +759,10 @@ input[type=submit]:hover {
     width: 500px;
     padding-left: 10px;
     padding-right: 10px;
+
+    @include device($breakPoint){
+        width: 300px;
+        }
 }
 
 .contactForm {
@@ -569,6 +779,10 @@ input[type=submit]:hover {
     gap: 10px;
     justify-content: space-between;
     align-items: baseline;
+
+    @include device($breakPoint){
+        display: unset;
+        }
 }
 
 .question{
