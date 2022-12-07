@@ -230,8 +230,8 @@ a{
     @include device($breakPoint){
         background-size: 20px 20px;
         padding-top: 20px;
-        padding-left: 20px;
-        padding-right: 20px;
+        padding-left: 30px;
+        padding-right: 30px;
         padding-bottom: 20px;
         grid-template-columns: 1fr;
         row-gap: 20px;
@@ -479,7 +479,7 @@ li{
 
     @include device($breakPoint){
         font-size: 14px;
-        padding: 15px;
+        padding: 15px 25px;
         line-height: 18px;
         }
 
@@ -524,7 +524,8 @@ li{
     width: 400px;
 
     @include device($breakPoint){
-        width: 316px;
+        width: 296px;
+        height: 228.76px;
         }
 }
 
