@@ -214,8 +214,8 @@ a {
   .page {
     background-size: 20px 20px;
     padding-top: 20px;
-    padding-left: 20px;
-    padding-right: 20px;
+    padding-left: 30px;
+    padding-right: 30px;
     padding-bottom: 20px;
     grid-template-columns: 1fr;
     row-gap: 20px;
@@ -447,7 +447,7 @@ li {
 @media only screen and (max-width: 430px) {
   .textBox {
     font-size: 14px;
-    padding: 15px;
+    padding: 15px 25px;
     line-height: 18px;
   }
 }
@@ -495,7 +495,8 @@ li {
 }
 @media only screen and (max-width: 430px) {
   .slideshow {
-    width: 316px;
+    width: 276px;
+    height: 182.844px;
   }
 }
 
@@ -661,13 +662,13 @@ a.lightbox-close:after {
   align-self: center;
   font-family: Georgia, "Times New Roman", Times, serif;
   color: #253B73;
-  margin-bottom: 10px;
+  margin-bottom: 20px;
   display: flex;
   flex-flow: row wrap;
 }
 @media only screen and (max-width: 430px) {
   .contactInfo {
-    font-size: 16px;
+    font-size: 14px;
   }
 }
 
@@ -733,7 +734,7 @@ input[type=submit]:hover {
 }
 @media only screen and (max-width: 430px) {
   #fnameBox, #lnameBox, #emailBox, #pNumBox {
-    width: 300px;
+    width: 250px;
   }
 }
 
@@ -744,6 +745,11 @@ input[type=submit]:hover {
   font-family: Georgia, "Times New Roman", Times, serif;
   font-size: 18px;
   font-weight: 300;
+}
+@media only screen and (max-width: 430px) {
+  .contactForm {
+    font-size: 16px;
+  }
 }
 
 .row {
