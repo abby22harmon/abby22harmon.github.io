@@ -5,8 +5,13 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>abby22harmon</title>
-    <link rel="stylesheet" href=".././css/styles.css">
-    <script src=".././javascript/index.js" defer></script>
+    <link rel="stylesheet" href="../css/styles.css">
+    <link rel="stylesheet" type="text/css" href="../slick/slick-theme.css"/>
+    <link rel="stylesheet" type="text/css" href="../slick/slick.css"/>
+    <script type="text/javascript" src="//code.jquery.com/jquery-1.11.0.min.js" defer></script>
+    <script type="text/javascript" src="//code.jquery.com/jquery-migrate-1.2.1.min.js" defer></script>
+    <script src="../slick/slick.min.js" defer></script>
+    <script type="text/javascript" src="../javascript/index.js" defer></script>
 </head>
 <body>
     <div class="contentPage">
@@ -42,8 +47,8 @@
                 <a  href="contact.html" class="contact writing">
                     Contact Me
                 </a>
-                <p class="logo titleBlock">
-                    work
+                <p class="logo titleBlock titleBlock__logo">
+                    <img class="logoPhoto" src=".././assests/abby_harmon_logo.png" alt=""></img>
                 </p>
             </div>
         </div>
@@ -57,53 +62,84 @@
                     <div class="arrowPointer arrowPointer__art">
                         <h2>Hargrave Electric Rebrand</h2>
                     </div>
-                    <div class="textBox">
-                        <h2 class="textTitle">
-                            Description
-                        </h2>
-                        <ul>
-                            <li>A brand overhaul for a 40+ year old Electrical Engineering firm in Houston, Texas</li>
-                            <li>Created with Illustrator and Photoshop</li>
-                            <li>Included a brand guide, new desktop and mobile website, and a launch trailer video</li>
-                        </ul>    
+                    <div class="textBox textBox__details">
+                        <div class="container1">
+                            <h2 class="textTitle">
+                                Description
+                            </h2>
+                            <ul>
+                                <li>A brand overhaul for a 40+ year old Electrical Engineering firm in Houston, Texas</li>
+                                <li>Created with Illustrator and Photoshop</li>
+                                <li>Included a brand guide, new desktop and mobile website, and a launch trailer video</li>
+                            </ul>  
+                        </div>  
+                        <div class="container2">
+                            <div class="slideshow">
+                                <img src=".././assests/abby_harmon_hargrave.jpg" class="textPhoto" alt=""></img>
+                                <img src=".././assests/abby_harmon_hargrave_bc.jpg" class="textPhoto" alt=""></img>
+                                <img src=".././assests/abby_harmon_hargrave_lh.jpg" class="textPhoto" alt=""></img>
+                            </div>
+                            <p>Figure 1: Logo Markup</p>
+                        </div>
                     </div>                    
                 </div>
                 <div class="box2">
                     <div class="arrowPointer arrowPointer__art">
                         <h2>"Crazy Coasters" Safety Poster</h2>
                     </div>
-                    <div class="textBox">
-                        <h2 class="textTitle">
-                            Description
-                        </h2>
-                        <ul>
-                            <li>An infographic detailing the statistics for rollercoasters in the US, along with safety tips</li>
-                            <li>Created with Illustrator and Indesign</li>
-                            <li>Included an infographic video made with Premiere Pro</li>
-                        </ul>
+                    <div class="textBox textBox__details">
+                        <div class="container1">
+                            <h2 class="textTitle textBox__details">
+                                Description
+                            </h2>
+                            <ul>
+                                <li>An infographic detailing the statistics for rollercoasters in the US, along with safety tips</li>
+                                <li>Created with Illustrator and Indesign</li>
+                                <li>Included an infographic video made with Premiere Pro</li>
+                            </ul>
+                        </div>
+                        <div class="container2">
+                            <a class="lightbox" href="#coaster">
+                                <img src=".././assests/abby_harmon_coaster.jpg" class="textPhoto" alt=""></img>    
+                            </a>
+                            <div class="lightbox-target" id="coaster">
+                                <img src=".././assests/abby_harmon_coaster_expand.png"/>
+                                <a class="lightbox-close" href="#"></a>
+                             </div>
+                            <p>Figure 2: Safety Poster</p>
+                        </div>
                     </div>
                 </div>
                 <div class="box3">
                     <div class="arrowPointer arrowPointer__art">
                         <h2>"The Last Olympian" Cover Redesign</h2>
                     </div>
-                    <div class="textBox">
-                        <h2 class="textTitle">
-                            Description
-                        </h2>
-                        <ul>
-                            <li>A redesign of the cover for the 5th book in the Percy Jackson and the Olympian series "The Last Olympian" by Rick Riordan</li>
-                            <li>Created with Illustrator and Photoshop</li>
-                        </ul>
+                    <div class="textBox textBox__details">
+                        <div class="container1">
+                            <h2 class="textTitle">
+                                Description
+                            </h2>
+                            <ul>
+                                <li>A redesign of the cover for the 5th book in the Percy Jackson and the Olympian series "The Last Olympian" by Rick Riordan</li>
+                                <li>Created with Illustrator and Photoshop</li>
+                            </ul>
+                        </div>
+                        <div class="container2">
+                            <a class="lightbox" href="#pjo">
+                                <img src=".././assests/abby_harmon_pjo.jpg"class="textPhoto" alt=""></img>    
+                            </a>
+                            <div class="lightbox-target" id="pjo">
+                                <img src=".././assests/abby_harmon_pjo_expand.jpg"/>
+                                <a class="lightbox-close" href="#"></a>
+                             </div>
+                            <p>Figure 3: Book Mockup</p>
+                        </div>
                     </div>
                 </div>
             </div>
         </div>
     </div>
     <div class="bottomText">
-        <button onclick="href='contact.html'">
-            Contact Me
-        </button>
         <div class="contactInfo">
             <p> Designed by Abigail Harmon</p>
             <a href = "mailto: abby22harmon@gmail.com" id="email" target="_blank">| Email Me |</a>
