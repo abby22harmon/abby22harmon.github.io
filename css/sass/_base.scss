@@ -692,12 +692,12 @@ a.lightbox-close:after {
     align-self: center;
     font-family: Georgia, 'Times New Roman', Times, serif;
     color: $text_1;
-    margin-bottom: 10px;
+    margin-bottom: 20px;
     display: flex;
     flex-flow: row wrap;
 
     @include device($breakPoint){
-        font-size: 16px;
+        font-size: 14px;
         }
 }
 
@@ -773,6 +773,10 @@ input[type=submit]:hover {
     font-family: Georgia, 'Times New Roman', Times, serif;
     font-size: 18px;
     font-weight: 300;
+
+    @include device($breakPoint){
+        font-size: 16px;
+        }
 }
 
 .row{
