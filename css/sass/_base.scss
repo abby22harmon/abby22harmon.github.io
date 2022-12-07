@@ -762,7 +762,7 @@ input[type=submit]:hover {
     padding-right: 10px;
 
     @include device($breakPoint){
-        width: 300px;
+        width: 250px;
         }
 }
 
